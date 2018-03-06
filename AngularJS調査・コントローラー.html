@@ -1,0 +1,23 @@
+<!doctype html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.min.js"></script>
+<script>
+var app = angular.module('myApp', []);
+app.controller('myController', function() {
+  this.message = 'Hello world!';
+});
+</script>
+</head>
+<body>
+ <div ng-app="myApp">
+  <div ng-controller="myController as myCtrl">
+   {{myCtrl.message}}
+  </div>
+ </div>
+ 下記では、モジュールとコントローラを利用した例を示します。ng-app でアプリケーションを指定し、
+ ng-controller でコントローラを指定します。コントローラの中で $scope に定義した変数を {{...}} で使用することができます。
+ AngularJS 1.2 以降では、$scope ではなく this を用いて、次のように記述することが可能で、最近ではこの記法が主に使用されています。
+ 呼び出す側は as を用いてオブジェクトを定義し、オブジェクトのプロパティとして値を参照します。この形式により、複数のコントローラを利用する場合に $scope の範囲が不明確になるのを防ぐことができます。
+</body>
+</html>
